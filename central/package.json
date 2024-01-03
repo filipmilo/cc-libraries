@@ -1,0 +1,17 @@
+{
+  "name": "central",
+  "version": "1.0.0",
+  "description": "Central library project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Filip Milosevic E2 108/2023",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  }
+}
