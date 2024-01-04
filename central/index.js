@@ -1,9 +1,9 @@
-import express from "express";
+import express, { json } from "express";
 import mongoose from "mongoose";
 
-const PORT = 8080;
+const PORT = 3000;
 
-mongoose.connect("mongodb://localhost:8081/db");
+mongoose.connect("mongodb://mongodb-central:27017/db");
 
 const User = mongoose.model(
   "User",
@@ -24,9 +24,11 @@ const Borrow = mongoose.model("Borrow", {
   isbn: String,
   releaseDate: Date,
   userId: String
-})
+});
 
 const app = express();
+
+app.use(json());
 
 app.post("/users", async (req, res) => {
   const {

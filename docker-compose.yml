@@ -1,0 +1,19 @@
+services:
+  mongodb-central:
+    image: 'mongo'
+    ports: 
+      - 27017:27017
+    volumes:
+      - data:/data/db
+
+  central:
+    build:
+      context: ./central
+      dockerfile: Dockerfile
+    ports: 
+      - 3000:3000
+    depends_on: 
+      - mongodb-central
+
+volumes:
+  data:
