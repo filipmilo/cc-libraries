@@ -3,16 +3,18 @@ import express, { json } from "express";
 import { readFileSync } from "fs";
 import { join } from "path";
 import serveStatic from "serve-static";
+import cors from "cors";
 
-const PORT = 3000;
+const PORT = 8000;
 
-const STATIC_PATH = "/app/frontend/dist/";
+const STATIC_PATH = "./frontend/dist/";
 
-const CENTRAL_URL = "central:3000/";
+const CENTRAL_URL = "http://central:3000/";
 
 const app = express();
 
 app.use(json());
+app.use(cors());
 
 app.post("/api/register", async (req, res) => {
   const response = await axios.post(`${CENTRAL_URL}users`, req.body);

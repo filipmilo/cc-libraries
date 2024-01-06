@@ -55,9 +55,9 @@ export async function borrowAction({ request }) {
     return null;
   }
 
-  const response = await axios.post("localhost:5431/api/borrow", updates);
+  const response = await axios.post("http://localhost:8000/api/borrow", updates);
 
-  alert(response);
+  alert(JSON.stringify(response));
 
   return redirect(`/`);
 }

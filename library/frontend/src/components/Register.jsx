@@ -49,9 +49,9 @@ export async function registerAction({ request }) {
     return null;
   }
 
-  const response = await axios.post("localhost:5431/api/register", updates);
+  const response = await axios.post("http://localhost:8000/api/register", updates);
 
-  alert(response);
+  alert(JSON.stringify(response));
 
   return redirect(`/`);
 }
