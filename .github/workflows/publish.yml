@@ -40,7 +40,7 @@ jobs:
           REPOSITORY: lib1
           IMAGE_TAG: latest
         run: |
-          echo ${{ secrets.LIB1 }} >> .env.lib1
+          echo ${{ secrets.LIB1 }} >> ./library/.env.lib1
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib1 ./library
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   lib2:
@@ -61,7 +61,7 @@ jobs:
           REPOSITORY: lib2
           IMAGE_TAG: latest
         run: |
-          echo ${{ secrets.LIB2 }} >> .env.lib2
+          echo ${{ secrets.LIB2 }} >> ./library/.env.lib2
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib2 ./library
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   lib3:
@@ -82,6 +82,6 @@ jobs:
           REPOSITORY: lib3
           IMAGE_TAG: latest
         run: |
-          echo ${{ secrets.LIB3 }} >> .env.lib3
+          echo ${{ secrets.LIB3 }} >> ./library/.env.lib3
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib3 ./library
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
