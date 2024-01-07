@@ -28,20 +28,14 @@ services:
       - data3:/data/db
 
   central:
-    build:
-      context: ./central
-      dockerfile: Dockerfile
+    image: filipmilo/central
     ports: 
       - 3000:3000
     depends_on: 
       - mongodb-central
 
   library1:
-    build:
-      context: ./library
-      dockerfile: Dockerfile
-      args:
-        - env=.env.lib1
+    image: filipmilo/lib1
     ports:
       - 8000:8000
     environment: 
@@ -51,11 +45,7 @@ services:
       - mongodb-1
 
   library2:
-    build:
-      context: ./library
-      dockerfile: Dockerfile
-      args:
-        - env=.env.lib2
+    image: filipmilo/lib2
     ports:
       - 8001:8000
     environment: 
@@ -65,11 +55,7 @@ services:
       - mongodb-2
 
   library3:
-    build:
-      context: ./library
-      dockerfile: Dockerfile
-      args:
-        - env=.env.lib3
+    image: filipmilo/lib3
     ports:
       - 8002:8000
     environment: 
