@@ -41,7 +41,7 @@ jobs:
           IMAGE_TAG: latest
         run: |
           echo ${{ secrets.LIB1 }} >> .env.lib1
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env = .env.lib1 ./central
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib1 ./central
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   lib2:
     runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
           IMAGE_TAG: latest
         run: |
           echo ${{ secrets.LIB2 }} >> .env.lib2
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env = .env.lib2 ./central
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib2 ./central
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   lib3:
     runs-on: ubuntu-latest
@@ -83,5 +83,5 @@ jobs:
           IMAGE_TAG: latest
         run: |
           echo ${{ secrets.LIB3 }} >> .env.lib3
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env = .env.lib3 ./central
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib3 ./central
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
