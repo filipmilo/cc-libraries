@@ -16,7 +16,7 @@ jobs:
 
       - name: Build, tag and push the Central image to DockerHub
         env: 
-          REGISTRY: ${secrets.DOCKERHUB_USERNAME}
+          REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
           REPOSITORY: central
           IMAGE_TAG: latest
         run: |
