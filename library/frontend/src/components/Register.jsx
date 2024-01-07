@@ -49,7 +49,7 @@ export async function registerAction({ request }) {
     return null;
   }
 
-  const response = await axios.post("http://localhost:8000/api/register", updates);
+  const response = await axios.post(`http://localhost:${import.meta.env.VITE_PORT}/api/register`, updates);
 
   alert(JSON.stringify(response));
 

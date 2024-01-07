@@ -1,8 +1,14 @@
 FROM node:18 as builder
 
+ARG env
+
 WORKDIR /build
 
 COPY ./frontend/ .
+
+COPY ${env} .
+
+RUN cat ${env} >> .env
 
 RUN yarn && yarn build
 

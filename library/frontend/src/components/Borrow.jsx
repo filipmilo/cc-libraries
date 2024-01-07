@@ -50,12 +50,12 @@ export async function borrowAction({ request }) {
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
 
-  if (!updates.ucin) {
+  if (!updates.userId) {
     alert("userId (UCIN) is required")
     return null;
   }
 
-  const response = await axios.post("http://localhost:8000/api/borrow", updates);
+  const response = await axios.post(`http://localhost:${import.meta.env.VITE_PORT}/api/borrow`, updates);
 
   alert(JSON.stringify(response));
 

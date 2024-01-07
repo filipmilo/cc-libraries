@@ -6,6 +6,27 @@ services:
     volumes:
       - data:/data/db
 
+  mongodb-1:
+    image: 'mongo'
+    ports: 
+      - 27018:27017
+    volumes:
+      - data1:/data/db
+
+  mongodb-2:
+    image: 'mongo'
+    ports: 
+      - 27019:27017
+    volumes:
+      - data2:/data/db
+
+  mongodb-3:
+    image: 'mongo'
+    ports: 
+      - 27020:27017
+    volumes:
+      - data3:/data/db
+
   central:
     build:
       context: ./central
@@ -15,12 +36,50 @@ services:
     depends_on: 
       - mongodb-central
 
-  library-novi-sad:
+  library1:
     build:
       context: ./library
       dockerfile: Dockerfile
+      args:
+        - env=.env.lib1
     ports:
       - 8000:8000
+    environment: 
+      - LIBRARY=${LIBRARY_1}
+      - DB=${LIBRARY_1_DB}
+    depends_on: 
+      - mongodb-1
+
+  library2:
+    build:
+      context: ./library
+      dockerfile: Dockerfile
+      args:
+        - env=.env.lib2
+    ports:
+      - 8001:8000
+    environment: 
+      - LIBRARY=${LIBRARY_2}
+      - DB=${LIBRARY_2_DB}
+    depends_on: 
+      - mongodb-2
+
+  library3:
+    build:
+      context: ./library
+      dockerfile: Dockerfile
+      args:
+        - env=.env.lib3
+    ports:
+      - 8002:8000
+    environment: 
+      - LIBRARY=${LIBRARY_3}
+      - DB=${LIBRARY_3_DB}
+    depends_on: 
+      - mongodb-3
 
 volumes:
   data:
+  data1:
+  data2:
+  data3:
