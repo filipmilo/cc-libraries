@@ -10,6 +10,8 @@ COPY ${env} .
 
 RUN cat ${env} >> .env
 
+RUN cat .env
+
 RUN yarn && yarn build
 
 FROM node:18
