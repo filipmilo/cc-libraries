@@ -39,11 +39,10 @@ jobs:
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
           REPOSITORY: lib1
           IMAGE_TAG: latest
-          LIBRARY: "Novi Sad"
           PORT: 8000
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
-            --build-arg VITE_LIBRARY=$LIBRARY \
+            --build-arg VITE_LIBRARY="Novi Sad" \
             --build-arg VITE_PORT=$PORT \
             ./library
 
