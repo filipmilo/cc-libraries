@@ -1,16 +1,14 @@
 FROM node:18 as builder
 
-ARG env
+ARG VITE_LIBRARY
+ARG VITE_PORT
+
+ENV VITE_LIBRARY=$VITE_LIBRARY
+ENV VITE_PORT=$VITE_PORT
 
 WORKDIR /build
 
 COPY ./frontend/ .
-
-COPY ${env} .
-
-RUN cat ${env} >> .env
-
-RUN cat .env
 
 RUN yarn && yarn build
 

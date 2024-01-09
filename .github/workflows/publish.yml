@@ -41,7 +41,11 @@ jobs:
           IMAGE_TAG: latest
         run: |
           echo ${{ secrets.LIB1 }} >> ./library/.env.lib1
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib1 ./library
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \ 
+            --build-arg VITE_LIBRARY="Novi Sad" \ 
+            --build-arg VITE_PORT=8000 \ 
+            ./library
+
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   lib2:
     runs-on: ubuntu-latest
@@ -62,7 +66,10 @@ jobs:
           IMAGE_TAG: latest
         run: |
           echo ${{ secrets.LIB2 }} >> ./library/.env.lib2
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib2 ./library
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \ 
+            --build-arg VITE_LIBRARY=Beograd \ 
+            --build-arg VITE_PORT=8001 \ 
+            ./library
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   lib3:
     runs-on: ubuntu-latest
@@ -83,5 +90,8 @@ jobs:
           IMAGE_TAG: latest
         run: |
           echo ${{ secrets.LIB3 }} >> ./library/.env.lib3
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg env=.env.lib3 ./library
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \ 
+            --build-arg VITE_LIBRARY=Nis \ 
+            --build-arg VITE_PORT=8002 \ 
+            ./library
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
