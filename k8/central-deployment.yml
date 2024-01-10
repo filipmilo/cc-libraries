@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: central-deployment 
+spec:
+  selector:
+    matchLabels:
+      app: central 
+  template:
+    metadata:
+      labels:
+        app: central
+    spec:
+      containers:
+      - name: central
+        image: filipmilo/central
+        ports:
+        - containerPort: 3000
+      - name: mongodb-central
+        image: mongo
+        ports:
+        - containerPort: 27017

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lib3-deployment 
+spec:
+  selector:
+    matchLabels:
+      app: lib3
+  template:
+    metadata:
+      labels:
+        app: lib3
+    spec:
+      containers:
+      - name: library3
+        image: filipmilo/lib3
+        env:
+        - name: LIBRARY
+          value: "Nis"
+        - name: DB
+          value: "mongodb://mongodb-3:27017/db"
+        ports:
+        - containerPort: 8000
+      - name: mongodb-3
+        image: mongo
+        ports:
+        - containerPort: 27017
