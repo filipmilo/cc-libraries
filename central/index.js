@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const PORT = 3000;
 
-mongoose.connect("mongodb://mongodb-central:27017/db");
+mongoose.connect(process.env.DB);
 
 const User = mongoose.model(
   "User",

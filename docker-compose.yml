@@ -31,6 +31,8 @@ services:
     image: filipmilo/central
     ports: 
       - 3000:3000
+    environment: 
+      - DB=${LIBRARY_1_DB}
     depends_on: 
       - mongodb-central
 

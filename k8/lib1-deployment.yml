@@ -18,7 +18,7 @@ spec:
         - name: LIBRARY
           value: "Novi Sad"
         - name: DB
-          value: "mongodb://mongodb-1:27017/db"
+          value: "mongodb://localhost:27017/db"
         ports:
         - containerPort: 8000
       - name: mongodb-1
