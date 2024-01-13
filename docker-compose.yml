@@ -32,7 +32,7 @@ services:
     ports: 
       - 3000:3000
     environment: 
-      - DB=${LIBRARY_1_DB}
+      - DB=${LIBRARY_CENTRAL_DB}
     depends_on: 
       - mongodb-central
 

@@ -19,8 +19,11 @@ spec:
           value: "Beograd"
         - name: DB
           value: "mongodb://localhost:27017/db"
+        - name: NODE_ENV
+          value: "prod"
         ports:
         - containerPort: 8000
+          name: lib2-port
       - name: mongodb-2
         image: mongo
         volumeMounts:

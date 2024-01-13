@@ -19,6 +19,7 @@ spec:
           value: "mongodb://localhost:27017/db"
         ports:
         - containerPort: 3000
+          name: central-port
       - name: mongodb-central
         image: mongo
         volumeMounts:

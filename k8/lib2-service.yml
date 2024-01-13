@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lib2-service 
+spec:
+  selector:
+    app: lib2
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: lib2-port
