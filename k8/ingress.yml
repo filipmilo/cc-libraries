@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway 
+  labels:
+    name: gateway
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: localhost 
+    http:
+      paths:
+      - path: /lib1
+        pathType: Prefix
+        backend:
+          service:
+            name: lib1-service
+            port:
+              number: 8000
+      - path: /lib2
+        pathType: Prefix
+        backend:
+          service:
+            name: lib2-service
+            port:
+              number: 8000
+      - path: /lib3
+        pathType: Prefix
+        backend:
+          service:
+            name: lib3-service
+            port:
+              number: 8000

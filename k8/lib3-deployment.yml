@@ -21,6 +21,8 @@ spec:
           value: "mongodb://localhost:27017/db"
         - name: NODE_ENV
           value: "prod"
+        - name: PATH
+          value: "lib3"
         ports:
         - containerPort: 8000
           name: lib3-port
