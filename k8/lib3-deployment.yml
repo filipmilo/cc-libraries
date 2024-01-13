@@ -23,5 +23,12 @@ spec:
         - containerPort: 8000
       - name: mongodb-3
         image: mongo
+        volumeMounts:
+          - mountPath: app/lib3
+            name: lib3-volume
         ports:
         - containerPort: 27017
+      volumes:
+        - name: lib3-volume
+          persistentVolumeClaim: 
+            claimName: host-pvc

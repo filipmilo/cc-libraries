@@ -21,5 +21,12 @@ spec:
         - containerPort: 3000
       - name: mongodb-central
         image: mongo
+        volumeMounts:
+          - mountPath: app/central
+            name: central-volume
         ports:
         - containerPort: 27017
+      volumes:
+        - name: central-volume
+          persistentVolumeClaim:
+            claimName: host-pvc

@@ -23,5 +23,12 @@ spec:
         - containerPort: 8000
       - name: mongodb-1
         image: mongo
+        volumeMounts:
+          - mountPath: app/lib1
+            name: lib1-volume
         ports:
         - containerPort: 27017
+      volumes:
+        - name: lib1-volume
+          persistentVolumeClaim: 
+            claimName: host-pvc
