@@ -8,24 +8,30 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: localhost 
+  - host: lib1.library.com
     http:
       paths:
-      - path: /lib1
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: lib1-service
             port:
               number: 8000
-      - path: /lib2
+  - host: lib2.library.com
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: lib2-service
             port:
               number: 8000
-      - path: /lib3
+  - host: lib3.library.com
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
