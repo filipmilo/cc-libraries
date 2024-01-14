@@ -27,14 +27,14 @@ app.use(json());
 app.use(cors());
 
 app.post("/api/register", async (req, res) => {
-  const response = await axios.post(`${CENTRAL_URL} users`, req.body);
+  const response = await axios.post(`${CENTRAL_URL}users`, req.body);
   res
     .status(response.status)
     .send(response.data);
 });
 
 app.post("/api/borrow", async (req, res) => {
-  const response = await axios.post(`${CENTRAL_URL} borrows`, req.body);
+  const response = await axios.post(`${CENTRAL_URL}borrows`, req.body);
 
   if (response.data.error) {
     res
