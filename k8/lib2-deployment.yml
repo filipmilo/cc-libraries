@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: library2
-        image: filipmilo/lib2
+        image: filipmilo/lib2:prod
         env:
         - name: LIBRARY
           value: "Beograd"

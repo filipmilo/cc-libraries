@@ -1,6 +1,6 @@
-name: Publish workflow
-run-name: ${{ github.actor }} is building and pushing the app to DockerHub
-on: [push]
+name: Production publish workflow
+run-name: ${{ github.actor }} is building and pushing the app to production
+on: workflow_dispatch
 jobs:
   central:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
         env: 
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
           REPOSITORY: central
-          IMAGE_TAG: latest
+          IMAGE_TAG: prod
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./central
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
@@ -38,8 +38,8 @@ jobs:
         env: 
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
           REPOSITORY: lib1
-          IMAGE_TAG: latest
-          ENDPOINT: localhost:8000
+          IMAGE_TAG: prod
+          ENDPOINT: lib1.library.com
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
             --build-arg VITE_LIBRARY="Novi Sad" \
@@ -63,9 +63,9 @@ jobs:
         env: 
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
           REPOSITORY: lib2
-          IMAGE_TAG: latest
+          IMAGE_TAG: prod
           LIBRARY: Beograd 
-          ENDPOINT: localhost:8001
+          ENDPOINT: lib2.library.com
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
             --build-arg VITE_LIBRARY=$LIBRARY \
@@ -88,9 +88,9 @@ jobs:
         env: 
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
           REPOSITORY: lib3
-          IMAGE_TAG: latest
+          IMAGE_TAG: prod
           LIBRARY: Nis
-          ENDPOINT: localhost:8002
+          ENDPOINT: lib3.library.com
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
             --build-arg VITE_LIBRARY=$LIBRARY \

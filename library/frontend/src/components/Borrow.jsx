@@ -55,7 +55,7 @@ export async function borrowAction({ request }) {
     return null;
   }
 
-  const response = await axios.post(`http://localhost:${import.meta.env.VITE_PORT}/api/borrow`, updates);
+  const response = await axios.post(`http://${import.meta.env.VITE_ENDPOINT}/api/borrow`, updates);
 
   alert(JSON.stringify(response));
 

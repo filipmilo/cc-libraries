@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: library3
-        image: filipmilo/lib3
+        image: filipmilo/lib3:prod
         env:
         - name: LIBRARY
           value: "Nis"

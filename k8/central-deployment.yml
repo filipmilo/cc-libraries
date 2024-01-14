@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: central
-        image: filipmilo/central
+        image: filipmilo/central:prod
         env:
         - name: DB
           value: "mongodb://localhost:27017/db"

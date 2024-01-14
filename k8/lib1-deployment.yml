@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: library1
-        image: filipmilo/lib1
+        image: filipmilo/lib1:prod
         env:
         - name: LIBRARY
           value: "Novi Sad"
